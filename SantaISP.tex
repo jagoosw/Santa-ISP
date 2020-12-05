@@ -1,0 +1,45 @@
+%++++++++++++++++++++++++++++++++++++++++
+% Don't modify this section unless you know what you're doing!
+\documentclass[letterpaper,11pt]{article}
+\usepackage{tabularx} % extra features for tabular environment
+\usepackage{amsmath}  % improve math presentation
+\usepackage{graphicx} % takes care of graphic including machinery
+\usepackage[margin=1in,letterpaper]{geometry} % decreases margins
+%\usepackage{cite} % takes care of citations
+\usepackage[final]{hyperref} % adds hyper links inside the generated pdf file
+\hypersetup{
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=blue,        % color of internal links
+    citecolor=blue,        % color of links to bibliography
+    filecolor=magenta,     % color of file links
+    urlcolor=blue         
+}
+%++++++++++++++++++++++++++++++++++++++++
+
+\usepackage{biblatex}
+\usepackage{tikz}
+\addbibresource{bib.bib}
+\begin{document}
+
+\title{Characterisation of the ISP of Santa's Sleigh}
+\author{Jago Strong-Wright}
+\date{5$^{th}$ December 2020}
+\maketitle
+
+Specific impulse (ISP) is an indication of the efficiency of a rocket engine and is defined as $I_{sp}=\frac{F}{\dot m g_0}$ \cite{nasa}. In order to estimate this for Santa's sleigh we must assume several things:
+\begin{itemize}
+    \item Santa must visit $200$ million children in $75$ million houses separated by an average of $2.62$km meaning he has to travel an average of $8.2\times10^{6}$km/s between each house and leaves each house instantly after arrival\cite{speed}
+    \item Every child receives $0.5$kg of presents so a total of $100$ million kg of presents. The mass of the sleigh, Santa and the reindeer can therefore be neglected as they are $\sim2000$kg
+    \item The reindeer receive $2$ carrots at each house, each weigh $150$kg and have a base metabolic rate of $2$W/kg\cite{deer_bmr} and all other energy is converted into acceleration
+    \item Each carrot weighs $0.06$kg and provides $25$kcal ($10.46$kJ)
+    \item Air resistance is neglected
+\end{itemize}
+Since there is no air resistance and if it is assumed that the acceleration is constant (i.e. the sleigh accelerates at a constant rate for half the flight time between houses and then decelerates at the same constant rate for the second half of the flight) so:
+$$t=\frac{1}{2}\frac{d}{v}=\frac{1}{2}\frac{2620}{8.2\times10^{9}}=1.6\times10^{-7}\text{s}$$
+$$s=\frac{1}{2}at^2\rightarrow a=\frac{2s}{t^2}=\frac{2620}{(1.6\times10^{-7})^2}=1\times10^{17}\text{m/s}$$
+$$F=ma\rightarrow F=1\times10^{25}N$$
+If the reindeer get the $75000000\times2$ carrots evenly over a 24 hour period then they consume $\sim1700$ carrots per second ($18\times10^6$W so the energy they consume to stay alive can be neglected). This gives $102$kg/s. Plugging these back into the formula for ISP gives:
+$$I_{sp}=\frac{F}{\dot m g_0}=\frac{1\times10^{23}}{9.81\times 102}=10^{20}\text{s}^{-1}$$
+This is $33333333333333333$ times more efficient than the F1 engine which took people to the moon which isn't surprising when you consider the fact that it consumes $200$ times less fuel per second but the sleigh weighs 33 times more.
+\printbibliography
+\end{document}
